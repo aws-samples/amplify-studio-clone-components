@@ -1,6 +1,6 @@
 # Amplify Studio - Clone components and collections to a new environment using AWS SDK.
 
-AWS Amplify Studio is a visual development environment for building fullstack web and mobile apps. Which provides capabilities such as generating UI components from a Figma file.
+[AWS Amplify Studio](https://docs.amplify.aws/console/) is a visual development environment for building fullstack web and mobile apps. Which provides capabilities such as generating UI components from a Figma file.
 While the UI components are a powerfull feature, Amplify Studio currently does not support cloning the components when cloning an existing environment.
 
 The examples intents to provide a automated method for cloning the UI components using Amplify CLI hooks when adding a new environment or manually clone the components using [AWS SDK v3 Amplify UIBuilder library](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifyuibuilder/). 
@@ -8,10 +8,9 @@ The examples intents to provide a automated method for cloning the UI components
 
 ### Amplify CLI Hooks
 
-
 We can automate the component creation when adding a new environment(`amplify add env`) using [Amplify CLI hooks](https://docs.amplify.aws/cli/project/command-hooks/#adding-a-command-hook).
 
-with files such as `pre-add-env.js` to get the previous env name, `post-add-env.js` to get existing env name and appID 
+With files such as `pre-add-env.js` to get the previous env name, `post-add-env.js` to get existing env name and appID 
 to then perform the export and import actions.
 
 1. Create a `pre-add-env.js` file under the `amplify/hooks` folder (create the folder if the hooks folder does not exist).
