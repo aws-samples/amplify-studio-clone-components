@@ -185,7 +185,7 @@ getParameters()
 6. Run `amplify add env` and observe the hooks run.
 7. (Optional) Run `amplify push` if the env has GraphQL API and your components have data binding.
 
-### Manually
+### Manual
 
 1. In a new directory, run `npm init`
 2. Create a `index.js` file and add the following.
