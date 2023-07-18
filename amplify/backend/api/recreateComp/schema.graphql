@@ -1,0 +1,4 @@
+type Abc @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  test: String
+}

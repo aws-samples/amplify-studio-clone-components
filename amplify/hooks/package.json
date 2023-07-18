@@ -1,0 +1,15 @@
+{
+  "name": "createcomponents",
+  "version": "1.0.0",
+  "description": "Recreate Amplify Studio components in new environment with components from older environment",
+  "main": "index.js",
+  "dependencies": {
+    "@aws-sdk/client-amplifyuibuilder": "^3.32.0"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
