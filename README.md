@@ -274,7 +274,7 @@ getParameters()
 
 ### Note
 
-The components being created will create the underlying props and data model bindings, if you open a component that has data model bindings you may observe an error. So ensure you have either re-create the same data model in the new environment, modify the binding properties to not create the bindings or remove the binding on a component in Amplify Studio.   
+The components being created will create the underlying props and data model bindings, if you open a component that has data model bindings you may observe an error. You may have to re-create the same data model in the new environment, modify the binding properties to not create the bindings or remove the binding on a component in Amplify Studio.   
 
 
 ## Security
