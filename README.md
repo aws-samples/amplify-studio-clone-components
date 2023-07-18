@@ -96,7 +96,7 @@ for (const component of components) {
 5. run `npm install` to install the packages
 6. run `node index.js`
 
-Optionally, we can automate the component creation when adding a new environemt(`amplify add env`) using Amplify CLI hooks.
+Optionally, we can automate the component creation when adding a new environment(`amplify add env`) using Amplify CLI hooks.
 https://docs.amplify.aws/cli/project/command-hooks/#adding-a-command-hook
 with files such as `pre-add-env.js` to get the previous env name, `post-add-env.js` to get existing env name and appID 
 to then perform the export and import actions.
