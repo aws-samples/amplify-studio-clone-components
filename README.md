@@ -3,7 +3,7 @@
 AWS Amplify Studio is a visual development environment for building fullstack web and mobile apps. Which provides capabilities such as generating UI components from a Figma file.
 While the UI components are a powerfull feature, Amplify Studio currently does not support cloning the components when cloning an existing environment.
 
-The examples intents to provide a automated method for cloning the UI components using Amplify CLI hooks when adding a new environment or manually clone the componenets using [AWS SDK v3 Amplify UIBuilder library](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifyuibuilder/). 
+The examples intents to provide a automated method for cloning the UI components using Amplify CLI hooks when adding a new environment or manually clone the components using [AWS SDK v3 Amplify UIBuilder library](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifyuibuilder/). 
 
 
 ### Amplify CLI Hooks
