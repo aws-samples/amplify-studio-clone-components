@@ -7,8 +7,7 @@ The examples intends to provide a automated method when cloning the UI component
 ### Prerequisites
 
 * An AWS account
-* Amplify project
-* Amplify Studio enabled
+* Amplify project with Amplify Studio enabled
 * NPM
 
 ### Amplify CLI Hooks
