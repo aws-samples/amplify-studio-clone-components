@@ -1,17 +1,13 @@
 # Amplify Studio - Clone components and collections to a new environment using AWS SDK.
 
-[AWS Amplify Studio](https://docs.amplify.aws/console/) is a visual development environment for building fullstack web and mobile apps. Which provides capabilities such as generating UI components from a Figma file.
-While the UI components are a powerfull feature, Amplify Studio currently does not support cloning the components when cloning an existing environment.
+[AWS Amplify Studio](https://docs.amplify.aws/console/) is a visual development environment for building fullstack web and mobile apps.  It also provides developers with capabilities to [generate UI components from a Figma file](https://docs.amplify.aws/console/uibuilder/figmatocode/). While the UI components are a powerfull feature, Amplify Studio currently does not support cloning the components when cloning an existing environment.
 
-The examples intents to provide a automated method for cloning the UI components using Amplify CLI hooks when adding a new environment or manually clone the components using [AWS SDK v3 Amplify UI Builder library](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifyuibuilder/). 
+The examples intends to provide a automated method when cloning the UI components using Amplify CLI hooks when adding a new environment, or when manually cloning the components using the [AWS SDK v3 Amplify UI Builder library](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifyuibuilder/). 
 
 
 ### Amplify CLI Hooks
 
-We can automate the component creation when adding a new environment(`amplify add env`) using [Amplify CLI hooks](https://docs.amplify.aws/cli/project/command-hooks/#adding-a-command-hook).
-
-With files such as `pre-add-env.js` to get the previous env name, `post-add-env.js` to get existing env name and appID 
-to then perform the export and import actions.
+We can automate the component creation when adding a new environment(`amplify add env`) using [Amplify CLI hooks](https://docs.amplify.aws/cli/project/command-hooks/#adding-a-command-hook). This can be done with files such as `pre-add-env.js` to get the previous env name, `post-add-env.js` to get existing env name and appID to then perform the export and import actions.
 
 1. Create a `pre-add-env.js` file under the `amplify/hooks` folder (create the folder if the hooks folder does not exist).
 2. Add the following
@@ -70,11 +66,6 @@ import {
   CreateComponentCommand,
 } from "@aws-sdk/client-amplifyuibuilder";
 
-/**
- * @param data { { amplify: { environment: { envName: string, projectPath: string, defaultEditor: string }, command: string, subCommand: string, argv: string[] } } }
- * @param error { { message: string, stack: string } }
- */
-
 async function componentsSync(prevEnv, presentEnv, appID, Region) {
   const client = new AmplifyUIBuilderClient({ region: Region }); // e.g. 'us-east-1' and auth config as needed
   // export components from old environment
@@ -128,6 +119,10 @@ async function componentsSync(prevEnv, presentEnv, appID, Region) {
   return;
 }
 
+/**
+ * @param data { { amplify: { environment: { envName: string, projectPath: string, defaultEditor: string }, command: string, subCommand: string, argv: string[] } } }
+ * @param error { { message: string, stack: string } }
+ */
 const hookHandler = async (data, error) => {
   console.log("Recreate components in new environment");
   const envName = data.amplify.environment.envName;
@@ -184,10 +179,10 @@ getParameters()
 6. Run `amplify add env` and observe the hooks run.
 7. (Optional) Run `amplify push` if the env has GraphQL API and your components have data binding.
 
-### Manual
+### Manually
 
 1. In a new directory, run `npm init`
-2. Create a `index.js` file and add the following.
+2. Create a `index.js` file with the following.
 
 ```js
 import {
@@ -248,7 +243,7 @@ for (const component of components) {
 ```
 
 3. Edit the values region, `app-id` and `env-name`. 
-4. Add the `package.json` dependencies and type as in the example
+4. Add the `package.json` dependencies and "type" as seen in the example below:
 
 ```json
 {
@@ -273,7 +268,7 @@ for (const component of components) {
 
 ### Note
 
-The components being created will create the underlying props and data model bindings, if you open a component that has data model bindings you may observe an error. You may have to re-create the same data model in the new environment, modify the binding properties to not create the bindings or remove the binding on a component in Amplify Studio.   
+The components being created will create the underlying props and data model bindings and could result in an error being observed if opened.  You may have to re-create the same data model in the new environment and modify the binding properties to not create the bindings, or remove the binding on a component in Amplify Studio.  
 
 
 ## Security
