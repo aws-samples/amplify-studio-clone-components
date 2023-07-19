@@ -187,7 +187,7 @@ getParameters()
 ### Manually
 
 1. In a new directory, run `npm init`
-2. Create a `index.js` file with the following.
+2. Create a `index.js` file with the following and replace the placeholders such as `region`,`app-id` and `env-name`.
 
 ```js
 import {
