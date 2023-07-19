@@ -7,11 +7,6 @@ import {
   CreateComponentCommand,
 } from "@aws-sdk/client-amplifyuibuilder";
 
-/**
- * @param data { { amplify: { environment: { envName: string, projectPath: string, defaultEditor: string }, command: string, subCommand: string, argv: string[] } } }
- * @param error { { message: string, stack: string } }
- */
-
 async function componentsSync(prevEnv, presentEnv, appID, Region) {
   const client = new AmplifyUIBuilderClient({ region: Region }); // e.g. 'us-east-1' and auth config as needed
   // export components from old environment
@@ -65,6 +60,10 @@ async function componentsSync(prevEnv, presentEnv, appID, Region) {
   return;
 }
 
+/**
+ * @param data { { amplify: { environment: { envName: string, projectPath: string, defaultEditor: string }, command: string, subCommand: string, argv: string[] } } }
+ * @param error { { message: string, stack: string } }
+ */
 const hookHandler = async (data, error) => {
   console.log("Recreate components in new environment");
   const envName = data.amplify.environment.envName;
