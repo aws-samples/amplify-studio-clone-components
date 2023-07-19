@@ -4,6 +4,12 @@
 
 The examples intends to provide a automated method when cloning the UI components using Amplify CLI hooks when adding a new environment, or when manually cloning the components using the [AWS SDK v3 Amplify UI Builder library](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-amplifyuibuilder/). 
 
+### Prerequisites
+
+* An AWS account
+* Amplify project
+* Amplify Studio enabled
+* NPM
 
 ### Amplify CLI Hooks
 
